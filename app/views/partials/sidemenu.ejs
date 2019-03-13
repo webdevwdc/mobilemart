@@ -1,0 +1,78 @@
+<div data-active-color="black" data-background-color="white" class="app-sidebar">
+    <!-- main menu header-->
+    <!-- Sidebar Header starts-->
+    <div class="sidebar-header">
+        <div class="logo clearfix">
+            <a href="<%= generateUrl('user.dashboard')%>" class="logo-text float-left">
+                <!--<div class="logo-img">
+                    <img src="/img/logo-dark.png" />
+                </div>-->
+                <span class="text align-middle">Mobile Mart</span>
+            </a>
+            <!-- <a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block">
+                <i data-toggle="expanded" class="ft-toggle-right toggle-icon"></i>
+            </a>
+            <a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none">
+                <i class="ft-x"></i>
+            </a> -->
+        </div>
+    </div>
+    <!-- Sidebar Header Ends-->
+    <!-- / main menu header-->
+    <!-- main menu content-->
+    <div class="sidebar-content">
+        <div class="nav-container">
+            <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+                <!-- Dashboard -->
+                <li class="<%= (page_name == 'user-dashboard')?'nav-item active':'' %>">
+                    <a href="<%= generateUrl('user.dashboard')%>">
+                        <i class="fa fa-tachometer fa-fw">
+                            <div class="icon-bg bg-orange"></div>
+                        </i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- User Management -->
+                <li class="<%= (page_name == 'user-management')?'nav-item active':'' %>">
+                    <a href="<%= generateUrl('user.list')%>">
+                        <i class="fa fa-user">
+                            <div class="icon-bg bg-orange"></div>
+                        </i>
+                        <span class="menu-title">Users</span>
+                    </a>
+                </li>
+               
+                 <!-- Product Management -->
+                 <li class="<%= (page_name == 'product-management')?'nav-item active':'' %>">
+                    <a href="<%= generateUrl('product.list')%>">
+                        <i class="fa fa-product-hunt">
+                            <div class="icon-bg bg-orange"></div>
+                        </i>
+                        <span class="menu-title">Products</span>
+                    </a>
+                </li>
+                
+
+
+                <!-- Setting Management -->
+                <li class="<%= (page_name == 'setting-management')?'nav-item active':'' %>">
+                    <a href="<%= generateUrl('setting.list')%>">
+                        <i class="fa fa-cog">
+                            <div class="icon-bg bg-orange"></div>
+                        </i>
+                        <span class="menu-title">Settings</span>
+                    </a>
+                </li>
+
+               
+
+            </ul>
+        </div>
+    </div>
+    <!-- main menu content-->
+    <div class="sidebar-background"></div>
+    <!-- main menu footer-->
+    <!-- include includes/menu-footer-->
+    <!-- main menu footer-->
+</div>

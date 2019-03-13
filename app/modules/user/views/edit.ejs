@@ -1,0 +1,67 @@
+<% layout(layout_directory+'/mainLayout') -%>
+	<!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;
+                <a href="<%= generateUrl('user.dashboard')%>">Home</a>&nbsp;&nbsp;
+                <i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">Edit <%= utils.humanize(userrole) %></li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+	<div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+				<div class="card-header">
+                    <h4 class="card-title" id="basic-layout-tooltip">Edit <%= utils.humanize(userrole) %></h4>
+				</div>
+                <div class="card-body collapse show">
+                    <div class="card-block">
+                        <form action="<%= generateUrl('user.update')%>" enctype="multipart/form-data" method="post" class="form-validate" novalidate>
+							<input type="hidden" name="user_id" value="<%=response.data._id%>">
+                            <div class="form-body pal overflowShow">
+						  <div class="row">
+							 <div class="form-group col-md-6 mb-2">
+								<label for="firstName" class="control-label">First Name</label>
+								<div class="controls">
+								    <input id="firstName" name="firstName" type="text" placeholder="Enter First Name" class="form-control required" required data-validation-required-message="This field is required" value="<%=response.data.firstName %>"/>
+								</div>
+							 </div>
+							 <div class="form-group col-md-6 mb-2">
+								<label for="lastName" class="control-label">Last Name</label>
+								<div class="controls">
+								    <input id="lastName" name="lastName" type="text" placeholder="Enter Last Name" class="form-control required" required data-validation-required-message="This field is required" value="<%=response.data.lastName %>"/>
+								</div>
+							 </div>
+						  </div>
+						  <div class="row">
+							 <div class="form-group col-md-6 mb-2">
+								<label for="email" class="control-label">Email</label>
+								<div class="controls">
+								    <input id="email" name="email" type="text" readonly placeholder="Enter Email" class="form-control required"  required data-validation-required-message="This field is required" data-validation-regex-regex="([A-Za-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" data-validation-regex-message="Enter Valid Email" aria-invalid="true" value="<%=response.data.email%>"/>
+								</div>
+							 </div>
+							 <div class="form-group col-md-6 mb-2">
+								<label for="contactNumber" class="control-label">Contact Number</label>
+								<div class="controls">
+								    <input id="contactNumber" name="contactNumber" type="text" placeholder="Enter Phone Number" class="form-control required" required data-validation-required-message="This field is required" value="<%=response.data.contactNumber %>"  pattern="^[ ()+]*([0-9][ ()+]*){10}$" data-validation-pattern-message="Enter 10 digit contact number" aria-invalid="true"/>
+								</div>
+							 </div>
+						  </div>
+					   </div>
+                            <div class="form-actions text-right pal">
+								<a href="<%= generateUrl(userrole+'.list')%>"><button type="button" class="btn btn-raised btn-warning mr-1">
+                            		<i class="ft-x"></i> Cancel
+                          		</button>
+								</a>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

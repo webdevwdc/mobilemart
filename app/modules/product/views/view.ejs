@@ -1,0 +1,115 @@
+<% layout(layout_directory+'/mainLayout') -%>
+
+<section id="add-row">
+    <div class="row">
+        <div class="col-12 form-group">
+            <div class="content-header">
+                All Products</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-4">
+            <select class="form-control" id="selectCategory"></select>
+        </div>
+        <div class="form-group col-2">
+            <input type="button" value="Reset Filter" id="btnreset" class="form-control" />
+        </div>
+    </div>
+
+
+    <form role="search" method="POST" action="<%= generateUrl('product.export.csv.daterange')%>" accept-charset="UTF-8"
+        novalidate="novalidate">
+        <div class="row">
+
+            <div class='form-group col-md-3'>
+                <div class="controls">
+                    <input type="text" id="txt_startdate" placeholder="Select a Date" class="form-control required"
+                        required data-validation-required-message="This field is required" name="startdate" />
+                </div>
+            </div>
+            <div class='form-group col-md-3'>
+                <div class="controls">
+                    <input type="text" id="txt_enddate" placeholder="Select a Date" class="form-control required"
+                        required data-validation-required-message="This field is required" name="enddate" />
+                </div>
+            </div>
+            <div class='col-md-3'>
+                <div class="form-group">
+                    <input type="submit" id="btnExport" value="Export" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <div class="row">
+        <div class='form-group col-md-6'>
+            <div class="controls">
+                <input type="text" id="txt_searchbox" placeholder="Product name or SKU" class="form-control required"
+                    required data-validation-required-message="This field is required" name="search" />
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div class="form-group">
+                <input type="button" id="btnSearch" value="Search" class="form-control" />
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div class="form-group">
+                <input type="button" id="btnViewAll" value="View All" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body collapse show">
+                    <div class="card-block">
+
+                        <div class="hidden-scroll" id="dv_allproduct">
+                            <table id="tbl_allproduct" class="table table-striped table-bordered add-rows">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>SKU</th>
+                                        <th>Image</th>
+                                        <th>Regular Price</th>
+                                        <th>Sale Price</th>
+                                        <th>C1 Price</th>
+                                        <th>C1 Retail Price</th>
+                                        <th>C1 Price Diff</th>
+                                        <th>C1 Price Diff %</th>
+                                        <th>C2 Price</th>
+                                        <th>C2 Retail Price</th>
+                                        <th>C2 Price Diff</th>
+                                        <th>C2 Price Diff %</th>
+                                        <th>C3 Price</th>
+                                        <th>C3 Retail Price</th>
+                                        <th>C3 Price Diff</th>
+                                        <th>C3 Price Diff %</th>
+                                        <th>C4 Price</th>
+                                        <th>C4 Retail Price</th>
+                                        <th>C4 Price Diff</th>
+                                        <th>C4 Price Diff %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <div class="box">
+                            <ul id="pagination" class="pagination"></ul>
+                            <div class="show"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

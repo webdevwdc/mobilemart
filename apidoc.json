@@ -1,0 +1,9 @@
+{
+    "name": "Mobile Mart API documentation",
+    "version": "1.0.0",
+    "description": "API Mobile Mart Manager",
+    "url" : "http://122.15.50.137:1381/api",
+    "template": {
+        "forceLanguage": "en"
+    }
+}

@@ -1,0 +1,94 @@
+<% layout(layout_directory+'/mainLayout') -%>
+<!--BEGIN TITLE & BREADCRUMB PAGE-->
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+
+    <ol class="breadcrumb page-breadcrumb pull-right">
+        <li>
+            <i class="fa fa-home"></i>&nbsp;
+            <a href="<%= generateUrl('user.dashboard')%>">Home</a>&nbsp;&nbsp;
+            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">Create Mail Template</li>
+    </ol>
+    <div class="clearfix"></div>
+</div>
+<!--END TITLE & BREADCRUMB PAGE-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="basic-layout-tooltip">Create Mail Template</h4>
+            </div>
+            <div class="card-body collapse show">
+                <div class="card-block">
+                    <ul class="nav nav-tabs">
+                        <% for(var i=0;i < response.languages.length; i++) {%>
+                        <li class="nav-item">
+                            <a class="nav-link <%=response.languages[i].isDefault ? 'active' : ''%>" id="base-<%=response.languages[i].title%>"
+                                data-toggle="tab" aria-controls="<%=response.languages[i].title%>" href="#<%=response.languages[i].title%>"
+                                aria-expanded="true">
+                                <%=response.languages[i].title%></a>
+                        </li>
+                        <% } %>
+                    </ul>
+                    <form action="<%= generateUrl('template.store')%>" enctype="multipart/form-data" method="post"
+                        class="form-validate" novalidate>
+                        <div class="form-body pal">
+                            <div class="tab-content px-1 pt-1">
+                                <% for(var i=0; i < response.languages.length; i++) {%>
+                                <div role="tabpanel" class="tab-pane <%=response.languages[i].isDefault ? 'active' : ''%>"
+                                    id="<%=response.languages[i].title%>" aria-expanded="true" aria-labelledby="base-<%=response.languages[i].title%>">
+                                    <% if(response.languages[i].isDefault){ %>
+                                    <input type="hidden" name="language" value="<%=response.languages[i]._id%>" />
+                                    <% }else{ %>
+                                    <input type="hidden" name="translate[<%=(i-1)%>][language]" value="<%=response.languages[i]._id%>" />
+                                    <% } %>
+                                    <div class="row">
+                                        <div class="form-group col-md-12 mb-2">
+                                            <label for="first_name" class="control-label">Title</label>
+                                            <div class="controls">
+                                                <% if(response.languages[i].isDefault){ %>
+                                                <input id="title" name="title" type="text" placeholder="Enter Title"
+                                                    class="form-control required" required
+                                                    data-validation-required-message="This field is required" value="" />
+                                                <% }else{ %>
+                                                <input id="title" name="translate[<%=(i-1)%>][title]" type="text"
+                                                    placeholder="Enter Title" class="form-control required" required
+                                                    data-validation-required-message="This field is required" value="" />
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12 mb-2">
+                                            <label for="content" class="control-label">Content</label>
+                                            <div class="controls">
+                                                <% if(response.languages[i].isDefault){ %>
+                                                <textarea name="content" rows="6" class="ckeditor form-control"
+                                                    data-validation-required-message="This field is required">
+                                                </textarea>
+                                                <% } else { %>
+                                                <textarea name="translate[<%=(i-1)%>][content]" rows="6" class="ckeditor form-control"
+                                                    data-validation-required-message="This field is required">
+                                                    </textarea>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="form-actions text-right pal">
+                            <a href="<%= generateUrl('template.list')%>"><button type="button" class="btn btn-raised btn-warning mr-1">
+                                    <i class="ft-x"></i> Cancel
+                                </button>
+                            </a>
+                            <button type="submit" class="btn btn-primary">Create Template</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

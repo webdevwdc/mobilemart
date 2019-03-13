@@ -1,0 +1,135 @@
+<% layout(layout_directory+'/mainLayout') -%>
+<!--BEGIN TITLE & BREADCRUMB PAGE-->
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+
+	<ol class="breadcrumb page-breadcrumb pull-right">
+		<li>
+			<i class="fa fa-home"></i>&nbsp;
+			<a href="<%= generateUrl('user.dashboard')%>">Home</a>&nbsp;&nbsp;
+			<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+		<li class="active">Edit Product</li>
+	</ol>
+	<div class="clearfix"></div>
+</div>
+<!--END TITLE & BREADCRUMB PAGE-->
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title" id="basic-layout-tooltip">Edit Product</h4>
+			</div>
+			<div class="card-body collapse show">
+				<div class="card-block">
+					<form action="<%= generateUrl('product.update')%>" enctype="multipart/form-data" method="post" class="form-validate"
+					 novalidate>
+						<input type="hidden" name="product_id" value="<%=response.data._id%>">
+						<div class="form-body pal overflowShow">
+							<div class="row">
+								<div class="form-group col-md-12 mb-2">
+									<label for="product_name" class="control-label">Product Name</label>
+									<div class="controls">
+										<input id="product_name" disabled name="product_name" type="text" placeholder="Enter product name" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.product_name %>" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 mb-2">
+									<label for="product_sku" class="control-label">Product SKU</label>
+									<div class="controls">
+										<input id="product_sku" disabled name="product_sku" type="text" placeholder="Enter SKU for product" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.product_sku %>" />
+									</div>
+								</div>
+								<div class="form-group col-md-6 mb-2">
+									<label for="variant_sku" class="control-label">Variant SKU</label>
+									<div class="controls">
+										<input id="variant_sku" disabled name="variant_sku" type="text" placeholder="Enter SKU for variant" class="form-control"
+										 data-validation-required-message="This field is required" value="<%=response.data.variant_sku %>" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-3 mb-2">
+									<label for="regular_price" class="control-label">Regular Price</label>
+									<div class="controls">
+										<input id="regular_price" disabled name="regular_price" type="text" placeholder="Enter Regular Price" class="form-control required allownumericwithdecimals"
+										 required data-validation-required-message="This field is required" value="<%=response.data.regular_price %>" />
+									</div>
+								</div>
+								<div class="form-group col-md-3 mb-2">
+									<label for="sale_price" class="control-label">Sale Price</label>
+									<div class="controls">
+										<input id="sale_price" disabled name="sale_price" type="text" placeholder="Enter Whole Sale Price" class="form-control required allownumericwithdecimals"
+										 required data-validation-required-message="This field is required" value="<%=response.data.sale_price %>" />
+									</div>
+								</div>
+								<div class="form-group col-md-3 mb-2">
+									<label for="buy_price" class="control-label">Buy Price</label>
+									<div class="controls">
+										<input id="buy_price" name="buy_price" type="text" placeholder="Enter Buy Price" class="form-control required allownumericwithdecimals"
+										 required data-validation-required-message="This field is required" value="<%=response.data.buy_price %>" />
+									</div>
+								</div>
+								<div class="form-group col-md-3 mb-2">
+									<label for="wholesale_price" class="control-label">Whole Sale Price</label>
+									<div class="controls">
+										<input id="wholesale_price" name="wholesale_price" type="text" placeholder="Enter Whole Sale Price" class="form-control required allownumericwithdecimals"
+										 required data-validation-required-message="This field is required" value="<%=response.data.wholesale_price %>" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 mb-2">
+									<label for="comp1_product_link" class="control-label">Competitor 1 Link</label>
+									<div class="controls">
+										<input id="comp1_product_link" name="comp1_product_link" type="url" placeholder="Competitor 1 link" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.comp1_product_link %>"
+										 data-validation-regex-regex="(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9].[a-z]{2,3}.?([a-z]+)?$"
+										 data-validation-regex-message="Enter Valid Link" />
+									</div>
+								</div>
+								<div class="form-group col-md-6 mb-2">
+									<label for="comp2_product_link" class="control-label">Competitor 2 Link</label>
+									<div class="controls">
+										<input id="comp2_product_link" name="comp2_product_link" type="text" placeholder="Competitor 2 link" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.comp2_product_link %>"
+										 data-validation-regex-regex="(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9].[a-z]{2,3}.?([a-z]+)?$"
+										 data-validation-regex-message="Enter Valid Link" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 mb-2">
+									<label for="comp3_product_link" class="control-label">Competitor 3 Link</label>
+									<div class="controls">
+										<input id="comp3_product_link" name="comp3_product_link" type="text" placeholder="Competitor 3 link" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.comp3_product_link %>"
+										 data-validation-regex-regex="(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9].[a-z]{2,3}.?([a-z]+)?$"
+										 data-validation-regex-message="Enter Valid Link" />
+									</div>
+								</div>
+								<div class="form-group col-md-6 mb-2">
+									<label for="comp4_product_link" class="control-label">Competitor 4 Link</label>
+									<div class="controls">
+										<input id="comp4_product_link" name="comp4_product_link" type="text" placeholder="Competitor 4 link" class="form-control required"
+										 required data-validation-required-message="This field is required" value="<%=response.data.comp4_product_link %>"
+										 data-validation-regex-regex="(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9].[a-z]{2,3}.?([a-z]+)?$"
+										 data-validation-regex-message="Enter Valid Link" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions text-right pal">
+							<a href="<%= generateUrl('product.list')%>"><button type="button" class="btn btn-raised btn-warning mr-1">
+									<i class="ft-x"></i> Cancel
+								</button>
+							</a>
+							<button type="submit" class="btn btn-primary">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

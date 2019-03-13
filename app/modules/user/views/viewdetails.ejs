@@ -1,0 +1,47 @@
+<% layout(layout_directory+'/mainLayout') -%>
+	<!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;
+                <a href="<%= generateUrl('user.dashboard')%>">Home</a>&nbsp;&nbsp;
+                <i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">View <%= utils.humanize(userrole) %> Details</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+	<div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+				<div class="card-header">
+                    <h4 class="card-title" id="basic-layout-tooltip">View <%= utils.humanize(userrole) %> Details</h4>
+				</div>
+                <div class="card-body collapse show">
+                    <div class="card-block">
+						<div>
+							<!-- <center><%= utils.humanize(userrole) %> Details</center> -->
+							<div class="">
+								<label>Name:</label> <%= response.data.firstName +' '+ response.data.lastName %>
+							</div>
+							<div class="">
+								<label>Email:</label> <%= response.data.email %>
+							</div>
+							<div class="">
+								<label>Contact No.:</label> <%= response.data.contactNumber %>
+							</div>
+							<div class="">
+								<label>Registered On:</label> <%= moment(response.data.createdAt).format('MMM, d YYYY') %>
+							</div>
+						</div>
+						<a href="<%= generateUrl(userrole+'.list')%>">
+							<button type="button" class="btn btn-raised btn-warning mr-1">
+								<i class="fa fa-arrow-left"></i> Back to List
+							</button>
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
